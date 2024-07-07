@@ -1,0 +1,22 @@
+@import './variables';
+
+.navigation {
+  &__container {
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    justify-content: space-between;
+    border-bottom: 1px solid $porcelain;
+  }
+
+  &__logo > img {
+    width: 15%;
+    object-fit: cover;
+  }
+
+  &__links {
+    display: flex;
+    gap: 1rem;
+  }
+}

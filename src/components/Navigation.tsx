@@ -21,7 +21,7 @@ function Navigation() {
           </Link>
         </li>
         <li>
-          <Link to="/favourites" className="navigation__link">
+          <Link to="/favourite" className="navigation__link">
             {window.innerWidth < 768 ? (
               <Icon style={{ fontSize: 20 }} name="addBookmark" />
             ) : (

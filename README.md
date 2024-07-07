@@ -79,3 +79,25 @@ http://localhost:5000
 8. **types**: Contains type definiton and dummy data for javascript codes.
 9. **utils**: Contains utilities such as loading environment variables or icons.
 10. **views**: Contains combination of multiple components that takes the shape of a web page.
+
+## Project Walkthrough
+
+### Home Page
+
+![Home Page](image-1.png)
+This is the home page of the website. To the top-right, you have links to the list page which is the current page and your favourite spells page. The names are hyperlinks to spell details page.
+
+### Spell Details Page
+
+![Spell Details Page](image-2.png)
+This page has the details of the spell. You can bookmark the current spell by clicking on the bookmark icon right beside the name of the spell.
+
+If you bookmark a spell, you will get a toast message notification
+![Toast message](image-3.png)
+![alt text](image-4.png)
+
+### Favourites Page
+
+![Favourites page](image-5.png)
+
+This page basically contains the list of spells that you added to your favourites. If you click on any of the link from the table, you will be redirected back to the spells details page.

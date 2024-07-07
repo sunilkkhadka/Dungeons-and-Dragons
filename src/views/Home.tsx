@@ -17,10 +17,6 @@ function Home() {
     }
   }, [dispatch, spellsList.length]);
 
-  // const spellsList = useMemo(() => ({ count, results }), [count, results]);
-
-  console.log(spellsList);
-
   return (
     <main>
       <h1>Total Spells = {count}</h1>

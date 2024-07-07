@@ -19,7 +19,7 @@ function App() {
         <Suspense fallback={<Loading />}>
           <AppRoute />
           <ToastContainer
-            position="top-right"
+            position="bottom-right"
             limit={4}
             autoClose={5000}
             closeOnClick

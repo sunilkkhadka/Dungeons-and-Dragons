@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+import { toast } from 'react-toastify';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -29,9 +30,11 @@ function Spell() {
     if (doesSpellExist) {
       setDoesSpellExist((prev) => !prev);
       removeItem(config.STORAGE_KEY, index);
+      toast('Item Removed Successfully', { type: 'info' });
     } else {
       setDoesSpellExist((prev) => !prev);
       setItem(config.STORAGE_KEY, index);
+      toast('Item Added Successfully', { type: 'success' });
     }
   };
 
@@ -39,51 +42,86 @@ function Spell() {
     <section className="spell__container">
       <div className="spell__intro">
         <div className="spell__intro-header">
-          <div className="spell__name">{spell.name}</div>
+          <div className="spell__name"> 🚀 {spell.name}</div>
           {doesSpellExist ? (
-            <Icon name="addBookmark" onClick={handleToggleFavourites} />
+            <Icon
+              style={{
+                fontSize: '2rem',
+                color: 'gold',
+                cursor: 'pointer',
+                marginBottom: '1rem',
+              }}
+              name="addBookmark"
+              onClick={handleToggleFavourites}
+            />
           ) : (
-            <Icon name="removeBookmark" onClick={handleToggleFavourites} />
+            <Icon
+              style={{
+                fontSize: '2rem',
+                cursor: 'pointer',
+                marginBottom: '1rem',
+              }}
+              name="removeBookmark"
+              onClick={handleToggleFavourites}
+            />
           )}
         </div>
+        <div className="spell__level">Level : {spell.level}</div>
         <div className="spell__description">{spell.desc?.[0]}</div>
-        <div className="spell__level">{spell.level}</div>
         <div className="spell__higher-level">{spell.higher_level}</div>
       </div>
       <div className="spell__attack-info">
-        <div className="spell__attack-type">{spell.attack_type}</div>
-        <div className="spell__attack-range">{spell.range}</div>
-        <div className="spell__attack-casting-time">{spell.casting_time}</div>
-        <div className="spell__attack-material">{spell.material}</div>
+        <h1>🎯 Attack Info</h1>
+        <div className="spell__attack-type">Type: {spell.attack_type}</div>
+        <div className="spell__attack-range">Range: {spell.range}</div>
+        <div className="spell__attack-casting-time">
+          Casting Time: {spell.casting_time}
+        </div>
+        <div className="spell__attack-material">
+          Spell Material: {spell.material}
+        </div>
       </div>
       <div className="spell__damage-info">
+        <h1>🧨 Damage Info</h1>
         {spell.damage?.damage_type && (
-          <div className="spell__damage-type">
-            {spell.damage?.damage_type?.name}
-          </div>
+          <li className="spell__damage-type">
+            Damage Type: {spell.damage?.damage_type?.name}
+          </li>
         )}
         {spell.damage?.damage_at_slot_level && (
           <div className="spell__damage-levels">
-            {Object.entries(spell.damage?.damage_at_slot_level).map(
-              (key, value) => (
-                <p key={uuidv4()}>
-                  {key}: {value}
-                </p>
-              )
-            )}
+            <h1>☢️ Damage Levels</h1>
+            <ul>
+              {Object.entries(spell.damage?.damage_at_slot_level).map(
+                (key, value) => (
+                  <li key={uuidv4()}>
+                    {key}: {value}
+                  </li>
+                )
+              )}
+            </ul>
           </div>
         )}
       </div>
-      <div className="spell__school">{spell.school.name}</div>
+      <div className="spell__school">
+        <h1>🏰 School Name</h1>
+        {spell.school.name}
+      </div>
       <div className="spell__classes">
-        {spell.classes.map((spellClass) => (
-          <p key={uuidv4()}>{spellClass.name}</p>
-        ))}
+        <h1>🔖 Classes</h1>
+        <ul>
+          {spell.classes.map((spellClass) => (
+            <li key={uuidv4()}>{spellClass.name}</li>
+          ))}
+        </ul>
       </div>
       <div className="spell__subclasses">
-        {spell.subclasses.map((spellSubclass) => (
-          <p key={uuidv4()}>{spellSubclass.name}</p>
-        ))}
+        <h1>🔖 Sub-Classes</h1>
+        <ul>
+          {spell.subclasses.map((spellSubclass) => (
+            <li key={uuidv4()}>{spellSubclass.name}</li>
+          ))}
+        </ul>
       </div>
     </section>
   );

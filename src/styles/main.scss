@@ -22,11 +22,8 @@ ul {
   font-size: 20px;
 }
 
+@import './partials/spell';
 @import './partials/variables';
 @import './partials/navigation';
 @import './partials/spell-list';
-
-.wrapper {
-  max-width: $xl;
-  margin: 0 auto;
-}
+@import './partials/favourite';

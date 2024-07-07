@@ -16,7 +16,7 @@ function Navigation() {
             {window.innerWidth < 768 ? (
               <Icon name="home" style={{ fontSize: 20 }} />
             ) : (
-              'Spell List'
+              'List'
             )}
           </Link>
         </li>
@@ -25,7 +25,7 @@ function Navigation() {
             {window.innerWidth < 768 ? (
               <Icon style={{ fontSize: 20 }} name="addBookmark" />
             ) : (
-              'My Favourite Spells'
+              'Favourites'
             )}
           </Link>
         </li>

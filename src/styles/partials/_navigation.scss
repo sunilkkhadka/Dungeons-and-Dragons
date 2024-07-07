@@ -2,17 +2,44 @@
 
 .navigation {
   &__container {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 3rem;
     display: flex;
     align-items: center;
     background-color: white;
     justify-content: space-between;
     border-bottom: 1px solid $porcelain;
+
+    @media (max-width: $sm) {
+      padding: 1rem;
+    }
   }
 
   &__logo > img {
     width: 15%;
     object-fit: cover;
+
+    @media (max-width: $sm) {
+      width: 23%;
+    }
+  }
+
+  &__link {
+    background-color: $strawberry;
+    padding: 1rem;
+    color: white;
+    font-weight: bold;
+    border-radius: 0.5rem;
+
+    &:hover {
+      transition: 0.1s ease;
+      background-color: $cherry;
+    }
+
+    @media (max-width: $sm) {
+      padding: 0.7rem;
+      display: flex;
+      justify-content: center;
+    }
   }
 
   &__links {

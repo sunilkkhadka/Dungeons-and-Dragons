@@ -1,0 +1,96 @@
+@import './variables';
+
+.spell {
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1rem;
+
+    @media (max-width: $sm) {
+      gap: 0;
+    }
+  }
+
+  &__intro {
+    padding: 1rem;
+    width: 100%;
+    background-color: $porcelain;
+  }
+
+  &__intro-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__name {
+    font-size: 2rem;
+    font-weight: bold;
+    color: $primaryTextColor;
+    padding-bottom: 1rem;
+  }
+
+  &__level {
+    background-color: $strawberry;
+    width: fit-content;
+    color: white;
+    padding: 0.4rem 0.8rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    border-radius: 0.5rem;
+  }
+
+  &__description {
+    margin-bottom: 1rem;
+  }
+
+  &__attack-info {
+    width: 20%;
+    margin: 1rem 0;
+    padding: 1rem;
+    border: 1px solid #555;
+
+    h1 {
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: $sm) {
+      width: 100%;
+    }
+  }
+
+  &__damage-info {
+    @extend .spell__attack-info;
+  }
+
+  &__damage-type {
+    margin-bottom: 1rem;
+  }
+
+  &__damage-levels {
+    ul {
+      padding-left: 1rem;
+      list-style-type: disc;
+    }
+  }
+
+  &__school {
+    @extend .spell__attack-info;
+    height: fit-content;
+  }
+
+  &__classes {
+    @extend .spell__attack-info;
+    height: fit-content;
+
+    ul {
+      padding-left: 1rem;
+      list-style-type: disc;
+    }
+  }
+
+  &__subclasses {
+    @extend .spell__classes;
+  }
+}

@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import store from './app/store';
 import AppRoute from './routes/AppRoute';
+import AppLayout from './layouts/AppLayout';
 
 function Loading() {
   return <h1>Loading...</h1>;
@@ -13,21 +14,23 @@ function Loading() {
 
 function App() {
   return (
-    <Provider store={store}>
-      <Suspense fallback={<Loading />}>
-        <AppRoute />
-        <ToastContainer
-          position="top-right"
-          limit={4}
-          autoClose={5000}
-          closeOnClick
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-        />
-        <ToastContainer />
-      </Suspense>
-    </Provider>
+    <AppLayout>
+      <Provider store={store}>
+        <Suspense fallback={<Loading />}>
+          <AppRoute />
+          <ToastContainer
+            position="top-right"
+            limit={4}
+            autoClose={5000}
+            closeOnClick
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
+          <ToastContainer />
+        </Suspense>
+      </Provider>
+    </AppLayout>
   );
 }
 

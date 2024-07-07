@@ -20,9 +20,6 @@ function AppRoute() {
         <Route exact path="/favourite" component={view.Favourite} />
         <Route exact path="*" component={NotFound} />
       </Switch>
-      <AppLayout.Footer>
-        <p className="footer_text">&copy; Example website 2024</p>
-      </AppLayout.Footer>
     </BrowserRouter>
   );
 }

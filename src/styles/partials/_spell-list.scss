@@ -1,0 +1,52 @@
+@import './variables';
+
+.home-page {
+  &__container {
+    width: 90%;
+    margin: 2rem auto;
+  }
+
+  &__table-container {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+  }
+
+  &__count {
+    font-size: medium;
+    text-align: center;
+    color: $primaryTextColor;
+    margin-bottom: 1rem;
+  }
+
+  &__table {
+    width: 100%;
+    border-spacing: 0;
+    margin: 0 auto;
+    overflow-x: auto;
+
+    a {
+      text-decoration: underline;
+    }
+
+    thead {
+      background-color: $strawberry;
+      color: white;
+
+      th {
+        padding: 12px;
+      }
+    }
+
+    tbody tr:nth-child(odd) {
+      background-color: #f9f9f9;
+    }
+
+    table,
+    th,
+    td {
+      text-align: left;
+      padding: 8px;
+    }
+  }
+}

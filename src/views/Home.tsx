@@ -18,31 +18,31 @@ function Home() {
   }, [dispatch, spellsList.length]);
 
   return (
-    <main>
-      <h1>Total Spells = {count}</h1>
-      <table>
-        <thead>
-          <tr>
-            <td>Index</td>
-            <td>Name</td>
-            <td>Level</td>
-            <td>URL</td>
-          </tr>
-        </thead>
-        <tbody>
-          {spellsList?.map((spell) => (
-            <tr key={spell.index}>
-              <td>{spell.index}</td>
-              <td>
-                <Link to={`/spell/${spell.index}`}>{spell.name}</Link>
-              </td>
-              <td>{spell.level}</td>
-              <td>{spell.url}</td>
+    <section className="home-page__container">
+      <h1 className="home-page__count">Total Spells = {count}</h1>
+      <div className="home-page__table-container">
+        <table className="home-page__table">
+          <thead>
+            <tr>
+              <th>Index</th>
+              <th>Name</th>
+              <th>Level</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </main>
+          </thead>
+          <tbody>
+            {spellsList?.map((spell) => (
+              <tr key={spell.index}>
+                <td>{spell.index}</td>
+                <td>
+                  <Link to={`/spell/${spell.index}`}>{spell.name}</Link>
+                </td>
+                <td>{spell.level}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
   );
 }
 

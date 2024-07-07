@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import * as view from './app.view';
-import Header from '../components/Header';
 import AppLayout from '../layouts/AppLayout';
+import Navigation from '../components/Navigation';
 
 function NotFound() {
   return <h1>Page Not Found</h1>;
@@ -16,7 +16,7 @@ function AppRoute() {
   return (
     <BrowserRouter>
       <AppLayout.Header>
-        <Header />
+        <Navigation />
       </AppLayout.Header>
       <Switch>
         <Route exact path="/" component={view.Home} />
@@ -24,7 +24,9 @@ function AppRoute() {
         <Route exact path="/favourtie" component={Favourite} />
         <Route exact path="*" component={NotFound} />
       </Switch>
-      <AppLayout.Footer>&copy; example</AppLayout.Footer>
+      <AppLayout.Footer>
+        <p className="footer_text">&copy; Example website 2024</p>
+      </AppLayout.Footer>
     </BrowserRouter>
   );
 }

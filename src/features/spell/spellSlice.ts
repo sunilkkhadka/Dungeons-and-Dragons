@@ -1,11 +1,14 @@
+/* eslint-disable no-param-reassign */
 import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import config from '../../utils/env';
 import { InitialSpellState } from '../../types/spell';
+import InitialSpellDetail from '../../types/spell.data';
 
 const initialState: InitialSpellState = {
   count: 0,
   results: [],
+  spellInfo: InitialSpellDetail,
 };
 
 export const fetchAllSpells = createAsyncThunk<InitialSpellState, void>(
@@ -13,6 +16,15 @@ export const fetchAllSpells = createAsyncThunk<InitialSpellState, void>(
   async (): Promise<InitialSpellState> => {
     const response = await fetch(config.BASE_URL);
     const data: InitialSpellState = await response.json();
+    return data;
+  }
+);
+
+export const fetchSpellByIndex = createAsyncThunk(
+  'Spells/fetchSpellByIndex',
+  async (index: string) => {
+    const response = await fetch(config.BASE_URL + index);
+    const data = await response.json();
     return data;
   }
 );
@@ -25,12 +37,13 @@ export const spellsSlice = createSlice({
     builder.addCase(
       fetchAllSpells.fulfilled,
       (state, action: PayloadAction<InitialSpellState>) => {
-        // eslint-disable-next-line no-param-reassign
         state.count = action.payload.count;
-        // eslint-disable-next-line no-param-reassign
         state.results = action.payload.results;
       }
     );
+    builder.addCase(fetchSpellByIndex.fulfilled, (state, action) => {
+      state.spellInfo = action.payload;
+    });
   },
 });
 
